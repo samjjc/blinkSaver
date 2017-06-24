@@ -83,8 +83,8 @@ writer = None
 zeros = None
 
 # loop over frames from the video stream
-for n in range(90):
-#while (True):
+#for n in range(90):
+while (True):
 	# grab the frame from the video stream and resize it to have a
 	# maximum width of 300 pixels
     frame = vs.read()
