@@ -31,7 +31,6 @@ def eye_aspect_ratio(eye):
 	return ear
 
 def blackscreen(): #Create function that will turn off screen
-    input()
     if sys.platform.startswith('win'): #If system is Windows
         #imports from windows
         import win32gui
@@ -48,6 +47,9 @@ def blackscreen(): #Create function that will turn off screen
         SC_MONITORPOWER = 0xF170 #variable that will change the power in the screen to zero
         win32gui.SendMessage(win32con.HWND_BROADCAST, win32con.WM_SYSCOMMAND, SC_MONITORPOWER, 2)
         t.cancel()
+    elif sys.platform.startswith('darwin'):
+        import subprocess
+        subprocess.call('echo \'tell application "Finder" to sleep\' | osascript', shell=True)
 
 
  
